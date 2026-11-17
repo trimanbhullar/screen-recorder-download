@@ -100,75 +100,9 @@ h1 span { color: var(--accent); }
   color: var(--text-2); font-size: 14px; max-width: 520px; }
 .os-note b { color: var(--text); }
 
-/* hero art: what the app does. The screen (blue) and the sound from the mic and the computer (green)
-   flow into the recorder, which writes one MP4 whose size counts up. Colour only with meaning. */
-.art { position: relative; max-width: 440px; width: 100%; justify-self: center; }
-.art svg { display: block; width: 100%; height: auto; overflow: visible; }
-.art .glow { fill: url(#hero-glow); }
-.art .spin { transform-box: view-box; transform-origin: 188px 283px; animation: spin 60s linear infinite; }
-.art .orbit { fill: none; stroke: var(--border-strong); stroke-dasharray: 2 7; }
-.art .wire { fill: none; stroke-width: 1.4; stroke-dasharray: 3 5; animation: flow 1.4s linear infinite, fade-in .6s calc(.3s + var(--i) * .08s) both; }
-.art .wire.vid { stroke: color-mix(in srgb, var(--accent) 60%, transparent); }
-.art .wire.snd { stroke: color-mix(in srgb, var(--good) 60%, transparent); }
-.art .wire.out { stroke: var(--border-strong); }
-.art .pk.vid { fill: var(--accent); filter: drop-shadow(0 0 4px var(--accent)); }
-.art .pk.snd { fill: var(--good); filter: drop-shadow(0 0 4px var(--good)); }
-.art .pop { transform-box: fill-box; transform-origin: center; animation: pop .6s calc(.15s + var(--i) * .08s) cubic-bezier(.2, 1.5, .4, 1) both; }
-.art .disc { fill: var(--surface); stroke: var(--border-strong); }
-.art .ping { fill: none; stroke: var(--good); transform-box: fill-box; transform-origin: center; opacity: 0;
-  animation: ping 3.6s calc(var(--i) * -.9s + 1.2s) ease-out infinite; }
-.art .ico { fill: none; stroke: var(--text-2); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-/* the screen */
-.art .scr { fill: var(--surface); stroke: color-mix(in srgb, var(--accent) 55%, transparent); stroke-width: 1.4; }
-.art .stand { fill: var(--surface-3); }
-.art .win { fill: var(--surface-2); stroke: var(--border); }
-.art .dot3 { fill: var(--surface-3); }
-.art .ln { fill: var(--surface-3); }
-.art .img { fill: color-mix(in srgb, var(--accent) 14%, var(--surface-3)); }
-.art .bar-line { stroke: var(--border-strong); }
-.art .menu { fill: var(--surface); stroke: var(--border-strong); filter: drop-shadow(0 4px 8px rgba(0, 0, 0, .25)); }
-.art .menu-hi { fill: var(--accent-wash); }
-.art .menu-ln { fill: var(--text-2); opacity: .55; }
-.art .cursor { fill: var(--text); stroke: var(--surface); stroke-width: 1.2; stroke-linejoin: round; }
-.art .cur { transform: translate(178px, 64px); animation: cur 6s cubic-bezier(.5, 0, .3, 1) infinite; }
-.art .ctx { transform-box: fill-box; transform-origin: top left; animation: ctx 6s ease infinite; }
-.art .menu-hi { animation: hi 6s steps(1) infinite; }
-.art .pill { fill: var(--surface); stroke: color-mix(in srgb, var(--rec) 45%, transparent); }
-.art .t-pill { font-size: 6.5px; fill: var(--text-2); }
-.art .t-clock { font-size: 7.5px; fill: var(--muted); }
-/* the recorder */
-.art .core { animation: pop .7s cubic-bezier(.2, 1.4, .4, 1) both; transform-box: fill-box; transform-origin: center; }
-.art .core-box { fill: var(--surface); stroke: color-mix(in srgb, var(--accent) 55%, transparent); stroke-width: 1.4;
-  animation: breathe 4s ease-in-out infinite; }
-.art .core-line { stroke: var(--border); }
-.art text { font-family: var(--mono); fill: var(--text-2); }
-.art .t-head { font-size: 9px; letter-spacing: .24em; fill: var(--text); font-family: var(--brand); font-weight: 700; }
-.art .t-row { font-size: 9.5px; }
-.art .t-dim { font-size: 8.5px; fill: var(--muted); letter-spacing: .08em; }
-.art .t-num { font-size: 15px; fill: var(--text); font-family: var(--brand); font-weight: 700; font-variant-numeric: tabular-nums; }
-.art .t-val { font-size: 9.5px; fill: var(--text); }
-.art .rec { fill: var(--rec); animation: blink 2s ease-in-out infinite; }
-.art .track { fill: var(--surface-3); }
-.art .bar { fill: var(--good); transform-box: fill-box; transform-origin: left center; animation: load 1.3s ease-in-out infinite alternate; }
-.art .bar.b2 { animation-duration: 1.7s; animation-delay: -.6s; }
-/* the file */
-.art .file { fill: var(--surface); stroke: var(--border-strong); }
-.art .page { fill: var(--surface-2); stroke: var(--text-2); stroke-width: 1.2; stroke-linejoin: round; }
-.art .play { fill: var(--text-2); }
-.legend { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 18px; margin-top: 6px; font: 11.5px var(--mono); color: var(--muted); }
-.legend i { display: inline-block; width: 7px; height: 7px; border-radius: 50%; margin-right: 7px; vertical-align: 1px; }
-@keyframes spin { to { transform: rotate(360deg); } }
-@keyframes flow { to { stroke-dashoffset: -16; } }
-@keyframes fade-in { from { opacity: 0; } }
-@keyframes pop { from { opacity: 0; transform: scale(.4); } }
-@keyframes ping { 0% { opacity: .55; transform: scale(1); } 60%, 100% { opacity: 0; transform: scale(1.7); } }
-@keyframes breathe { 50% { filter: drop-shadow(0 0 14px color-mix(in srgb, var(--accent) 45%, transparent)); } }
-@keyframes blink { 50% { opacity: .35; } }
-@keyframes load { from { transform: scaleX(.2); } to { transform: scaleX(1); } }
-/* the cursor wanders over the window, right-clicks, and a menu opens (and is recorded) */
-@keyframes cur { 0%, 6% { transform: translate(112px, 98px); } 30%, 74% { transform: translate(178px, 64px); } 100% { transform: translate(112px, 98px); } }
-@keyframes ctx { 0%, 31% { opacity: 0; transform: scale(.6); } 35%, 70% { opacity: 1; transform: none; } 74%, 100% { opacity: 0; transform: none; } }
-@keyframes hi { 0% { transform: none; } 48% { transform: translateY(11px); } 60% { transform: translateY(22px); } }
+/* hero: the feature tour (sr-tour.js / sr-tour.css, the same one orionsoft.cc shows), drawn in the app's own look */
+.art { position: relative; max-width: 560px; width: 100%; justify-self: center; padding: 14px; border-radius: 20px;
+  background: var(--surface); border: 1px solid var(--border); box-shadow: inset 0 1px 0 var(--highlight), var(--shadow); }
 
 /* sections and cards */
 section { padding: 24px 0 40px; }
@@ -219,7 +153,7 @@ code, kbd { font: 13px var(--mono); background: var(--surface-2); border: 1px so
 
 @media (max-width: 820px) {
   .hero { grid-template-columns: 1fr; padding-top: 24px; gap: 8px; }
-  .art { max-width: 380px; margin-top: 28px; }
+  .art { margin-top: 28px; }
   h1 { font-size: 36px; }
   .features { grid-template-columns: 1fr; }
 }
@@ -296,6 +230,8 @@ code, kbd { font: 13px var(--mono); background: var(--surface-2); border: 1px so
     .orion.draw line { stroke-dashoffset: 0; } .orion.draw circle { transform: none; }
   }
 </style>
+<link rel="stylesheet" href="sr-tour.css">
+<script src="sr-tour.js"></script>
 </head>
 <body>
 <div class="wrap">
@@ -322,85 +258,7 @@ code, kbd { font: 13px var(--mono); background: var(--surface-2); border: 1px so
       <div class="meta" id="hero-meta">Windows 10 and 11 · <span class="ver">latest version</span></div>
       <p class="os-note" data-not-win hidden><b>Screen Recorder runs on Windows.</b> To download it, open this page on a Windows 10 or 11 computer.</p>
     </div>
-    <div class="art" aria-hidden="true">
-      <svg viewBox="0 0 400 380">
-        <defs><radialGradient id="hero-glow"><stop offset="0" stop-color="var(--accent)" stop-opacity=".2"/><stop offset="1" stop-color="var(--accent)" stop-opacity="0"/></radialGradient></defs>
-        <circle class="glow" cx="200" cy="200" r="190"/>
-        <g class="spin"><circle class="orbit" cx="188" cy="283" r="92"/></g>
-
-        <!-- wires: picture from the screen, sound from the mic and the computer, out to the file -->
-        <g style="--i:0"><path id="w-scr" class="wire vid" d="M188 178V220"/></g>
-        <g style="--i:1"><path id="w-mic" class="wire snd" d="M60 262H120"/></g>
-        <g style="--i:2"><path id="w-spk" class="wire snd" d="M60 322H120"/></g>
-        <g style="--i:3"><path id="w-out" class="wire out" d="M256 284H296"/></g>
-        <circle class="pk vid" r="3" opacity="0"><animateMotion dur="1.4s" begin="0s" repeatCount="indefinite"><mpath href="#w-scr"/></animateMotion><animate attributeName="opacity" dur="1.4s" begin="0s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.15;.85;1"/></circle>
-        <circle class="pk vid" r="3" opacity="0"><animateMotion dur="1.4s" begin="-.7s" repeatCount="indefinite"><mpath href="#w-scr"/></animateMotion><animate attributeName="opacity" dur="1.4s" begin="-.7s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.15;.85;1"/></circle>
-        <circle class="pk snd" r="3" opacity="0"><animateMotion dur="1.8s" begin="-.3s" repeatCount="indefinite"><mpath href="#w-mic"/></animateMotion><animate attributeName="opacity" dur="1.8s" begin="-.3s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.12;.88;1"/></circle>
-        <circle class="pk snd" r="3" opacity="0"><animateMotion dur="1.8s" begin="-1.2s" repeatCount="indefinite"><mpath href="#w-mic"/></animateMotion><animate attributeName="opacity" dur="1.8s" begin="-1.2s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.12;.88;1"/></circle>
-        <circle class="pk snd" r="3" opacity="0"><animateMotion dur="2s" begin="-.8s" repeatCount="indefinite"><mpath href="#w-spk"/></animateMotion><animate attributeName="opacity" dur="2s" begin="-.8s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.12;.88;1"/></circle>
-        <circle class="pk snd" r="3" opacity="0"><animateMotion dur="2s" begin="-1.8s" repeatCount="indefinite"><mpath href="#w-spk"/></animateMotion><animate attributeName="opacity" dur="2s" begin="-1.8s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.12;.88;1"/></circle>
-        <circle class="pk vid" r="3" opacity="0"><animateMotion dur="1.6s" begin="-.2s" repeatCount="indefinite"><mpath href="#w-out"/></animateMotion><animate attributeName="opacity" dur="1.6s" begin="-.2s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.15;.85;1"/></circle>
-        <circle class="pk snd" r="3" opacity="0"><animateMotion dur="1.6s" begin="-1s" repeatCount="indefinite"><mpath href="#w-out"/></animateMotion><animate attributeName="opacity" dur="1.6s" begin="-1s" repeatCount="indefinite" values="0;1;1;0" keyTimes="0;.15;.85;1"/></circle>
-
-        <!-- the screen: a window, a right-click menu opening, and the small timer above the clock -->
-        <g class="pop" style="--i:0">
-          <rect class="scr" x="58" y="10" width="260" height="150" rx="12"/>
-          <rect class="stand" x="180" y="160" width="16" height="9"/>
-          <rect class="stand" x="162" y="168" width="52" height="4" rx="2"/>
-          <rect class="win" x="70" y="22" width="236" height="104" rx="6"/>
-          <circle class="dot3" cx="79" cy="31" r="2"/><circle class="dot3" cx="86" cy="31" r="2"/><circle class="dot3" cx="93" cy="31" r="2"/>
-          <rect class="ln" x="82" y="46" width="112" height="5" rx="2.5"/>
-          <rect class="ln" x="82" y="58" width="84" height="5" rx="2.5"/>
-          <rect class="ln" x="82" y="70" width="98" height="5" rx="2.5"/>
-          <rect class="ln" x="82" y="82" width="70" height="5" rx="2.5"/>
-          <rect class="img" x="224" y="44" width="70" height="46" rx="4"/>
-          <rect class="ln" x="82" y="104" width="44" height="10" rx="5"/>
-          <line class="bar-line" x1="58" y1="144" x2="318" y2="144"/>
-          <rect class="pill" x="238" y="128.5" width="70" height="12" rx="6"/>
-          <circle class="rec" cx="245" cy="134.5" r="2.2"/>
-          <text class="t-pill" x="250.5" y="137" id="pill">00:42 · 12 MB</text>
-          <text class="t-clock" x="306" y="155" text-anchor="end">9:41</text>
-          <g transform="translate(180 66)"><g class="ctx">
-            <rect class="menu" x="0" y="0" width="74" height="52" rx="5"/>
-            <rect class="menu-hi" x="3" y="4" width="68" height="11" rx="3"/>
-            <rect class="menu-ln" x="9" y="8" width="40" height="3.5" rx="1.75"/>
-            <rect class="menu-ln" x="9" y="19" width="52" height="3.5" rx="1.75"/>
-            <rect class="menu-ln" x="9" y="30" width="34" height="3.5" rx="1.75"/>
-            <rect class="menu-ln" x="9" y="41" width="46" height="3.5" rx="1.75"/>
-          </g></g>
-          <g class="cur"><path class="cursor" d="M0 0V13l3.2-3 2.3 5.2 2.2-1-2.3-5h4.4z"/></g>
-        </g>
-
-        <!-- the microphone and the computer's sound -->
-        <g style="--i:1" transform="translate(36 262)"><g class="pop" style="--i:1"><circle class="ping" r="22"/><circle class="disc" r="22"/><path class="ico" transform="translate(-12 -12)" d="M12 3a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3zM5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21"/></g></g>
-        <g style="--i:2" transform="translate(36 322)"><g class="pop" style="--i:2"><circle class="ping" r="22"/><circle class="disc" r="22"/><path class="ico" transform="translate(-12 -12)" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4zM15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></g></g>
-
-        <!-- the recorder -->
-        <g class="core">
-          <rect class="core-box" x="120" y="220" width="136" height="126" rx="20"/>
-          <circle class="rec" cx="137" cy="240" r="3.2"/>
-          <text class="t-head" x="146" y="243.5">REC</text>
-          <text class="t-num" x="242" y="245" text-anchor="end" id="rt">00:42</text>
-          <line class="core-line" x1="132" y1="255" x2="244" y2="255"/>
-          <text class="t-row" x="134" y="272">mic</text><rect class="track" x="190" y="267.5" width="52" height="4" rx="2"/><rect class="bar" x="190" y="267.5" width="52" height="4" rx="2"/>
-          <text class="t-row" x="134" y="292">sound</text><rect class="track" x="190" y="287.5" width="52" height="4" rx="2"/><rect class="bar b2" x="190" y="287.5" width="52" height="4" rx="2"/>
-          <line class="core-line" x1="132" y1="304" x2="244" y2="304"/>
-          <text class="t-dim" x="134" y="327">PURPOSE</text>
-          <text class="t-val" x="242" y="327" text-anchor="end">Share</text>
-        </g>
-
-        <!-- the MP4 file, growing as it records -->
-        <g class="pop" style="--i:4">
-          <rect class="file" x="296" y="232" width="94" height="104" rx="10"/>
-          <path class="page" d="M308 244h15l7 7v21h-22z"/>
-          <path class="play" d="M316 255v10l7.5-5z"/>
-          <text class="t-head" x="340" y="262">MP4</text>
-          <text class="t-row" x="308" y="294">Recording</text>
-          <text class="t-num" x="308" y="320" id="mb">12.4</text><text class="t-dim" x="380" y="320" text-anchor="end">MB</text>
-        </g>
-      </svg>
-      <div class="legend"><span><i style="background:var(--accent)"></i>screen</span><span><i style="background:var(--good)"></i>mic and computer sound</span></div>
-    </div>
+    <div class="art" id="tour" aria-label="What Screen Recorder does"></div>
   </div>
 
   <section id="download">
@@ -501,22 +359,13 @@ code, kbd { font: 13px var(--mono); background: var(--surface-2); border: 1px so
   const onWindows = /Win/i.test(plat) || /Windows/.test(ua);
   if (!onWindows) document.querySelectorAll("[data-not-win]").forEach(e => e.hidden = false);
 
-  // Hero: a running timer and a growing file size; everything holds still for reduced-motion users
-  const art = document.querySelector(".art svg"), rt = document.getElementById("rt"), mb = document.getElementById("mb"), pill = document.getElementById("pill");
-  if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    art.pauseAnimations();
-    art.querySelectorAll(".pk").forEach(e => e.remove());
-  } else {
-    let t = 42, size = 12.4;
-    const mmss = s => String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
-    setInterval(() => {
-      if (document.hidden) return;
-      t++; size += .26 + Math.random() * .08;
-      if (t >= 600) { t = 0; size = 0; }
-      rt.textContent = mmss(t); mb.textContent = size.toFixed(1);
-      pill.textContent = mmss(t) + " · " + Math.round(size) + " MB";
-    }, 1000);
-  }
+  // Hero: the feature tour runs while it's on screen and the tab is visible, and holds still for reduced motion
+  const tour = window.SRTour(document.getElementById("tour"), { reduced: matchMedia("(prefers-reduced-motion: reduce)").matches });
+  const tourEl = document.getElementById("tour");
+  let tourSeen = false;
+  const tourRun = () => (tourSeen && !document.hidden ? tour.start() : tour.stop());
+  new IntersectionObserver(([e]) => { tourSeen = e.isIntersecting; tourRun(); }).observe(tourEl);
+  document.addEventListener("visibilitychange", tourRun);
 
   // Night by default; Day only when picked here, remembered on this browser
   const themeBtn = document.getElementById("theme"), root = document.documentElement;
